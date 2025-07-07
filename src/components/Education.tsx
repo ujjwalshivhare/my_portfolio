@@ -26,8 +26,13 @@ const Education: React.FC = () => {
 
   const certifications: CertificationItem[] = [
     {
-      name: 'AWS Certified Cloud Practitioner',
-      issuer: 'Amazon Web Services',
+      name: 'Git Completion Certificate',
+      issuer: 'Git',
+      year: '2024'
+    },
+    {
+      name: 'Docker Completion Certificate',
+      issuer: 'Docker',
       year: '2024'
     },
     {

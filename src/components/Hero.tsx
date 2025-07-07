@@ -169,15 +169,15 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 blur-xl animate-pulse"></div>
               </div>
 
-              {/* Resume Download Button */}
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
+              {/* Resume Download Button - Moved slightly below */}
+              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
                 <button 
                   onClick={handleResumeDownload}
                   className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-4 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
                 >
                   <Download size={24} className="text-white group-hover:animate-bounce" />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-3 py-2 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                     Download Resume
                   </div>
                 </button>
