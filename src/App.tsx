@@ -40,14 +40,17 @@ const App: React.FC = () => {
     setShowWelcome(false);
   };
 
+  // Show loading screen first
   if (isLoading) {
     return <LoadingScreen onComplete={() => setIsLoading(false)} />;
   }
 
+  // Show welcome screen after loading
   if (showWelcome) {
     return <WelcomeScreen onComplete={handleWelcomeComplete} />;
   }
 
+  // Show main portfolio content
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
       {/* Background Effects */}

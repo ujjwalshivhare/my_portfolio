@@ -8,6 +8,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onComplete }) => {
   const [currentLine, setCurrentLine] = useState(0);
   const [currentChar, setCurrentChar] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [isComplete, setIsComplete] = useState(false);
 
   const welcomeLines = [
     'Initializing DevOps Universe...',
@@ -25,10 +26,13 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onComplete }) => {
   }, []);
 
   useEffect(() => {
+    if (isComplete) return;
+
     if (currentLine >= welcomeLines.length) {
+      setIsComplete(true);
       setTimeout(() => {
         onComplete();
-      }, 2000);
+      }, 1500);
       return;
     }
 
@@ -43,10 +47,10 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onComplete }) => {
       const timeout = setTimeout(() => {
         setCurrentLine(prev => prev + 1);
         setCurrentChar(0);
-      }, 800);
+      }, 600);
       return () => clearTimeout(timeout);
     }
-  }, [currentLine, currentChar, welcomeLines, onComplete]);
+  }, [currentLine, currentChar, welcomeLines, onComplete, isComplete]);
 
   return (
     <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
@@ -85,6 +89,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onComplete }) => {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              transform: `rotate(${Math.random() * 360}deg)`,
               animation: `shooting-star ${3 + Math.random() * 2}s linear infinite`,
               animationDelay: `${Math.random() * 5}s`
             }}
@@ -95,7 +100,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onComplete }) => {
       {/* Welcome Content */}
       <div className="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-8 max-w-lg w-full mx-4 relative z-10">
         <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center animate-pulse">
             <span className="text-2xl">🚀</span>
           </div>
           <h1 className="text-2xl font-bold text-white mb-2">DevOps Universe</h1>
@@ -111,12 +116,19 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onComplete }) => {
                   ? line.slice(0, currentChar)
                   : line
                 }
-                {index === currentLine && showCursor && (
+                {index === currentLine && showCursor && !isComplete && (
                   <span className="bg-green-400 text-black px-0.5 ml-0.5">_</span>
                 )}
               </span>
             </div>
           ))}
+          
+          {isComplete && (
+            <div className="flex items-center mt-4">
+              <span className="text-cyan-400 mr-2">$</span>
+              <span className="text-green-400">Loading complete! Redirecting...</span>
+            </div>
+          )}
         </div>
 
         <div className="mt-6 flex justify-center">
