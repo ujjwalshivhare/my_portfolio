@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Background from './components/Background';
-import LoadingScreen from './components/LoadingScreen';
 import WelcomeScreen from './components/WelcomeScreen';
 import MouseTrail from './components/MouseTrail';
 import OrbitRing from './components/OrbitRing';
@@ -13,8 +12,7 @@ import Contact from './components/Contact';
 import SocialIcons from './components/SocialIcons';
 
 const App: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showWelcome, setShowWelcome] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const userInfo = {
     name: 'Ujjwal Shivhare',
@@ -27,11 +25,10 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    // Initial loading screen
+    // Show welcome screen for 4 seconds, then show main content
     const timer = setTimeout(() => {
-      setIsLoading(false);
-      setShowWelcome(true);
-    }, 3000);
+      setShowWelcome(false);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -40,12 +37,7 @@ const App: React.FC = () => {
     setShowWelcome(false);
   };
 
-  // Show loading screen first
-  if (isLoading) {
-    return <LoadingScreen onComplete={() => setIsLoading(false)} />;
-  }
-
-  // Show welcome screen after loading
+  // Show welcome screen first
   if (showWelcome) {
     return <WelcomeScreen onComplete={handleWelcomeComplete} />;
   }
