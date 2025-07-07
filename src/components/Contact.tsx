@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 
 interface ContactForm {
   name: string;
+  email: string;
   subject: string;
   message: string;
 }
@@ -10,6 +11,7 @@ interface ContactForm {
 const Contact: React.FC = () => {
   const [form, setForm] = useState<ContactForm>({
     name: '',
+    email: '',
     subject: '',
     message: ''
   });
@@ -24,7 +26,7 @@ const Contact: React.FC = () => {
       // Create mailto link with form data
       const subject = encodeURIComponent(`Portfolio Contact: ${form.subject}`);
       const body = encodeURIComponent(
-        `Name: ${form.name}\n\nMessage:\n${form.message}\n\n---\nSent from Portfolio Contact Form`
+        `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}\n\n---\nSent from Portfolio Contact Form`
       );
       const mailtoLink = `mailto:ujjwalshivhare62@gmail.com?subject=${subject}&body=${body}`;
       
@@ -32,7 +34,7 @@ const Contact: React.FC = () => {
       window.location.href = mailtoLink;
       
       setSubmitStatus('success');
-      setForm({ name: '', subject: '', message: '' });
+      setForm({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       setSubmitStatus('error');
     } finally {
@@ -135,7 +137,7 @@ const Contact: React.FC = () => {
 
           {/* Contact Form */}
           <div className="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">Contact</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -151,6 +153,22 @@ const Contact: React.FC = () => {
                   required
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white placeholder-gray-500"
                   placeholder="Enter your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white placeholder-gray-500"
+                  placeholder="Enter your email"
                 />
               </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -91,15 +91,6 @@ const Projects: React.FC = () => {
                   >
                     <Github size={16} />
                     <span className="text-sm">View Code</span>
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
-                  >
-                    <ExternalLink size={16} />
-                    <span className="text-sm">Live Demo</span>
                   </a>
                 </div>
               </div>
