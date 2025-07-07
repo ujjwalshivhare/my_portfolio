@@ -100,11 +100,11 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
     <section className="min-h-screen flex items-center px-4 relative z-10">
       <div className="container mx-auto">
         {/* Mobile Layout */}
-        <div className="lg:hidden">
-          {/* Profile Image - Mobile */}
-          <div className="flex justify-center mb-8">
+        <div className="lg:hidden flex flex-col items-center space-y-8 py-8">
+          {/* Profile Image First - Mobile */}
+          <div className="flex justify-center">
             <div className="relative">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/50 relative z-10">
+              <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/50 relative z-10">
                 <img 
                   src="/Screenshot_20231217_055456_Gallery-removebg.png" 
                   alt="Ujjwal Shivhare"
@@ -116,12 +116,12 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
               </div>
 
               {/* Resume Download Button - Mobile */}
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
                 <button 
                   onClick={handleResumeDownload}
-                  className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-3 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+                  className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-2.5 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
                 >
-                  <Download size={20} className="text-white group-hover:animate-bounce" />
+                  <Download size={18} className="text-white group-hover:animate-bounce" />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                     Download Resume
@@ -131,28 +131,30 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
             </div>
           </div>
 
-          {/* YAML Text - Mobile */}
-          <div className="font-mono text-sm mb-6">
-            <div className="text-green-400 space-y-1">
-              {isVisible && yamlLines.slice(0, currentLine + 1).map((line, index) => (
-                <div key={index} className="flex">
-                  <span className="text-gray-500 mr-2 w-4 text-right text-xs">{index + 1}</span>
-                  <span className="text-xs sm:text-sm">
-                    {index === currentLine
-                      ? line.slice(0, currentChar)
-                      : line
-                    }
-                    {index === currentLine && showCursor && (
-                      <span className="bg-green-400 text-black px-0.5 ml-0.5 animate-pulse">_</span>
-                    )}
-                  </span>
-                </div>
-              ))}
+          {/* YAML Text Section - Mobile */}
+          <div className="w-full max-w-sm">
+            <div className="font-mono text-sm bg-gray-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-4">
+              <div className="text-green-400 space-y-1">
+                {isVisible && yamlLines.slice(0, currentLine + 1).map((line, index) => (
+                  <div key={index} className="flex">
+                    <span className="text-gray-500 mr-2 w-4 text-right text-xs">{index + 1}</span>
+                    <span className="text-xs break-all">
+                      {index === currentLine
+                        ? line.slice(0, currentChar)
+                        : line
+                      }
+                      {index === currentLine && showCursor && (
+                        <span className="bg-green-400 text-black px-0.5 ml-0.5 animate-pulse">_</span>
+                      )}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Status Badge - Mobile */}
-          <div className="flex flex-col items-center gap-3 mb-6">
+          <div className="flex flex-col items-center gap-3">
             <div className="flex items-center gap-2 bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <span className="text-green-400 font-medium text-sm">{userInfo.status}</span>
