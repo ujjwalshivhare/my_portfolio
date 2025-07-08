@@ -186,7 +186,7 @@ const Contact: React.FC = () => {
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white placeholder-gray-500 resize-none"
-                  placeholder="Tell me about your project or inquiry..."
+                  placeholder="Share details about the job opportunity, project requirements, or collaboration you'd like to discuss..."
                 />
               </div>
 
