@@ -97,14 +97,15 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
   };
 
   return (
-    <section className="min-h-screen flex items-center px-4 relative z-10">
-      <div className="container mx-auto">
-        {/* Mobile Layout */}
-        <div className="lg:hidden flex flex-col items-center space-y-8 py-8">
-          {/* Profile Image First - Mobile */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/50 relative z-10">
+    <>
+      {/* Mobile Layout */}
+      <div className="lg:hidden">
+        {/* First Section - Profile with Orbiting Tools (Full Screen) */}
+        <section className="min-h-screen flex items-center justify-center px-4 relative z-10">
+          <div className="relative flex items-center justify-center">
+            {/* Profile Image - Centered */}
+            <div className="relative z-20">
+              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/50">
                 <img 
                   src="/Screenshot_20231217_055456_Gallery-removebg.png" 
                   alt="Ujjwal Shivhare"
@@ -115,25 +116,41 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 blur-xl animate-pulse"></div>
               </div>
 
-              {/* Resume Download Button - Mobile */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+              {/* Resume Download Button */}
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
                 <button 
                   onClick={handleResumeDownload}
-                  className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-2.5 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+                  className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-3 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
                 >
-                  <Download size={18} className="text-white group-hover:animate-bounce" />
+                  <Download size={20} className="text-white group-hover:animate-bounce" />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-3 py-2 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                     Download Resume
                   </div>
                 </button>
               </div>
             </div>
-          </div>
 
-          {/* YAML Text Section - Mobile */}
-          <div className="w-full max-w-sm">
-            <div className="font-mono text-sm bg-gray-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-4">
+            {/* Status Badge - Below Profile */}
+            <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3">
+              <div className="flex items-center gap-2 bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-green-400 font-medium text-sm">{userInfo.status}</span>
+              </div>
+              
+              <div className="flex items-center gap-2 text-gray-400">
+                <MapPin size={14} />
+                <span className="text-sm">India</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Second Section - YAML Content (Appears on Scroll) */}
+        <section className="min-h-screen flex items-center justify-center px-4 relative z-10">
+          <div className="w-full max-w-md">
+            {/* YAML Text Section */}
+            <div className="font-mono text-sm bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6">
               <div className="text-green-400 space-y-1">
                 {isVisible && yamlLines.slice(0, currentLine + 1).map((line, index) => (
                   <div key={index} className="flex">
@@ -151,79 +168,9 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Status Badge - Mobile */}
-          <div className="flex flex-col items-center gap-3">
-            <div className="flex items-center gap-2 bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-green-400 font-medium text-sm">{userInfo.status}</span>
-            </div>
-            
-            <div className="flex items-center gap-2 text-gray-400">
-              <MapPin size={14} />
-              <span className="text-sm">India</span>
-            </div>
-          </div>
-
-          {/* Quick Contact - Mobile */}
-          <div className="flex justify-center gap-6">
-            <a
-              href={`mailto:${userInfo.email}`}
-              className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
-            >
-              <Mail size={16} />
-              <span className="text-sm">Email</span>
-            </a>
-            <a
-              href={`tel:${userInfo.phone}`}
-              className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
-            >
-              <Phone size={16} />
-              <span className="text-sm">Call</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Desktop Layout - Unchanged */}
-        <div className="hidden lg:grid lg:grid-cols-12 gap-8 items-center">
-          {/* Left Side - YAML Introduction (Takes 7 columns) */}
-          <div className="lg:col-span-7 space-y-6">
-            {/* YAML Text - No Border/Box */}
-            <div className="font-mono text-lg">
-              <div className="text-green-400 space-y-1">
-                {isVisible && yamlLines.slice(0, currentLine + 1).map((line, index) => (
-                  <div key={index} className="flex">
-                    <span className="text-gray-500 mr-3 w-6 text-right">{index + 1}</span>
-                    <span>
-                      {index === currentLine
-                        ? line.slice(0, currentChar)
-                        : line
-                      }
-                      {index === currentLine && showCursor && (
-                        <span className="bg-green-400 text-black px-0.5 ml-0.5 animate-pulse">_</span>
-                      )}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Status Badge */}
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-green-400 font-medium">{userInfo.status}</span>
-              </div>
-              
-              <div className="flex items-center gap-2 text-gray-400">
-                <MapPin size={16} />
-                <span>India</span>
-              </div>
-            </div>
-
-            {/* Quick Contact */}
-            <div className="flex flex-wrap gap-4">
+            {/* Quick Contact - Below YAML */}
+            <div className="flex justify-center gap-6 mt-8">
               <a
                 href={`mailto:${userInfo.email}`}
                 className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
@@ -240,40 +187,103 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
               </a>
             </div>
           </div>
+        </section>
+      </div>
 
-          {/* Right Side - Profile & Orbit (Takes 5 columns, pushed to far right) */}
-          <div className="lg:col-span-5 flex justify-end">
-            <div className="relative">
-              {/* Profile Image */}
-              <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/50 relative z-10">
-                <img 
-                  src="/Screenshot_20231217_055456_Gallery-removebg.png" 
-                  alt="Ujjwal Shivhare"
-                  className="w-full h-full object-cover"
-                />
-                
-                {/* Profile Glow */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 blur-xl animate-pulse"></div>
+      {/* Desktop Layout - Unchanged */}
+      <section className="hidden lg:block min-h-screen">
+        <div className="min-h-screen flex items-center px-4 relative z-10">
+          <div className="container mx-auto">
+            <div className="grid lg:grid-cols-12 gap-8 items-center">
+              {/* Left Side - YAML Introduction (Takes 7 columns) */}
+              <div className="lg:col-span-7 space-y-6">
+                {/* YAML Text - No Border/Box */}
+                <div className="font-mono text-lg">
+                  <div className="text-green-400 space-y-1">
+                    {isVisible && yamlLines.slice(0, currentLine + 1).map((line, index) => (
+                      <div key={index} className="flex">
+                        <span className="text-gray-500 mr-3 w-6 text-right">{index + 1}</span>
+                        <span>
+                          {index === currentLine
+                            ? line.slice(0, currentChar)
+                            : line
+                          }
+                          {index === currentLine && showCursor && (
+                            <span className="bg-green-400 text-black px-0.5 ml-0.5 animate-pulse">_</span>
+                          )}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Status Badge */}
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-green-400 font-medium">{userInfo.status}</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <MapPin size={16} />
+                    <span>India</span>
+                  </div>
+                </div>
+
+                {/* Quick Contact */}
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href={`mailto:${userInfo.email}`}
+                    className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                  >
+                    <Mail size={16} />
+                    <span className="text-sm">Email</span>
+                  </a>
+                  <a
+                    href={`tel:${userInfo.phone}`}
+                    className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                  >
+                    <Phone size={16} />
+                    <span className="text-sm">Call</span>
+                  </a>
+                </div>
               </div>
 
-              {/* Resume Download Button - Moved slightly below */}
-              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
-                <button 
-                  onClick={handleResumeDownload}
-                  className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-4 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
-                >
-                  <Download size={24} className="text-white group-hover:animate-bounce" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-3 py-2 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                    Download Resume
+              {/* Right Side - Profile & Orbit (Takes 5 columns, pushed to far right) */}
+              <div className="lg:col-span-5 flex justify-end">
+                <div className="relative">
+                  {/* Profile Image */}
+                  <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/50 relative z-10">
+                    <img 
+                      src="/Screenshot_20231217_055456_Gallery-removebg.png" 
+                      alt="Ujjwal Shivhare"
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Profile Glow */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 blur-xl animate-pulse"></div>
                   </div>
-                </button>
+
+                  {/* Resume Download Button - Moved slightly below */}
+                  <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
+                    <button 
+                      onClick={handleResumeDownload}
+                      className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-4 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+                    >
+                      <Download size={24} className="text-white group-hover:animate-bounce" />
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-3 py-2 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                        Download Resume
+                      </div>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
