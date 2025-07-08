@@ -189,6 +189,8 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
                 <a
                   href={`mailto:${userInfo.email}`}
                   className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                 target="_blank"
+                 rel="noopener noreferrer"
                 >
                   <Mail size={16} />
                   <span className="text-sm">Email</span>
@@ -244,6 +246,8 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
                   <a
                     href={`mailto:${userInfo.email}`}
                     className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                   target="_blank"
+                   rel="noopener noreferrer"
                   >
                     <Mail size={16} />
                     <span className="text-sm">Email</span>

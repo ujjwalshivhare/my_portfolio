@@ -78,6 +78,8 @@ const Contact: React.FC = () => {
                     <a
                       href="mailto:ujjwalshivhare62@gmail.com"
                       className="text-white hover:text-cyan-400 transition-colors"
+                     target="_blank"
+                     rel="noopener noreferrer"
                     >
                       ujjwalshivhare62@gmail.com
                     </a>
