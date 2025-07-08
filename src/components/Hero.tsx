@@ -25,6 +25,8 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
     'role: DevOps Engineer',
     'status: "Open to Work"',
     'location: India',
+    'education: "B.Tech Computer Science (2025)"',
+    'summary: "Fresh graduate passionate about DevOps"',
     'specialization:',
     '  - Cloud Infrastructure',
     '  - CI/CD Automation',

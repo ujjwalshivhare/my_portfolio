@@ -17,10 +17,10 @@ interface CertificationItem {
 const Education: React.FC = () => {
   const education: EducationItem[] = [
     {
-      degree: 'B.Tech (Computer Science Engineering)',
+      degree: 'B.Tech in Computer Science Engineering',
       college: 'Baderia Global Institute Of Engineering And Management',
       cgpa: '8.24',
-      passout: '2025'
+      passout: '2025 (Graduated)'
     }
   ];
 
@@ -90,7 +90,24 @@ const Education: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar className="text-purple-400" size={16} />
-                        <span className="text-purple-400">Graduating: {edu.passout}</span>
+                        <span className="text-purple-400">{edu.passout}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Professional Summary */}
+                    <div className="mt-4 p-4 bg-gray-800/50 rounded-lg border border-cyan-500/20">
+                      <h5 className="text-lg font-semibold text-cyan-400 mb-2">Professional Summary</h5>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Fresh B.Tech Computer Science graduate with a passion for DevOps and cloud technologies. 
+                        Developed strong interest in coding and cloud infrastructure during academic years. 
+                        Dedicated to continuous learning and exploring new technologies in the DevOps ecosystem. 
+                        Eager to apply theoretical knowledge and hands-on project experience to contribute 
+                        effectively in a professional DevOps environment.
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <span className="text-xs bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded-full">Fresh Graduate</span>
+                        <span className="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full">DevOps Enthusiast</span>
+                        <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">Continuous Learner</span>
                       </div>
                     </div>
                   </div>

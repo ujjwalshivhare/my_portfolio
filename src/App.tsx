@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
   const userInfo = {
     name: 'Ujjwal Shivhare',
-    role: 'DevOps Engineer',
+    role: 'DevOps Engineer | Fresh Graduate',
     status: 'Open to Work',
     email: 'ujjwalshivhare62@gmail.com',
     github: 'https://github.com/ujjwalshivhare',
