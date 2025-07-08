@@ -124,7 +124,7 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
           <div className="relative flex items-center justify-center">
             {/* Profile Image - Centered */}
             <div className="relative z-20">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/50">
+              <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/50">
                 <img 
                   src="/Screenshot_20231217_055456_Gallery-removebg.png" 
                   alt="Ujjwal Shivhare"
@@ -136,30 +136,17 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
               </div>
 
               {/* Resume Download Button */}
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
                 <button 
                   onClick={handleResumeDownload}
-                  className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-3 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+                  className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-2.5 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
                 >
-                  <Download size={20} className="text-white group-hover:animate-bounce" />
+                  <Download size={18} className="text-white group-hover:animate-bounce" />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-3 py-2 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                     Download Resume
                   </div>
                 </button>
-              </div>
-            </div>
-
-            {/* Status Badge - Below Profile */}
-            <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3">
-              <div className="flex items-center gap-2 bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-green-400 font-medium text-sm">{userInfo.status}</span>
-              </div>
-              
-              <div className="flex items-center gap-2 text-gray-400">
-                <MapPin size={14} />
-                <span className="text-sm">India</span>
               </div>
             </div>
           </div>

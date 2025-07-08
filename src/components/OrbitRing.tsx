@@ -80,7 +80,7 @@ const OrbitRing: React.FC = () => {
       {tools.map((tool, index) => {
         const totalAngle = rotation + tool.angle;
         const radians = (totalAngle * Math.PI) / 180;
-        const radius = 200; // Adjust radius for different screen sizes
+        const radius = window.innerWidth >= 1024 ? 200 : 120; // Smaller radius for mobile
         const x = Math.cos(radians) * radius;
         const y = Math.sin(radians) * radius * 0.6; // Elliptical orbit
 
