@@ -187,7 +187,7 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
             {mobileYamlVisible && (
               <div className="flex justify-center mt-8">
                 <a
-                  href={`mailto:${userInfo.email}`}
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalshivhare62@gmail.com"
                   className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
                  target="_blank"
                  rel="noopener noreferrer"
@@ -244,7 +244,7 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
                 {/* Quick Contact */}
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href={`mailto:${userInfo.email}`}
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalshivhare62@gmail.com"
                     className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
                    target="_blank"
                    rel="noopener noreferrer"

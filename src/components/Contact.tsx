@@ -28,10 +28,10 @@ const Contact: React.FC = () => {
       const body = encodeURIComponent(
         `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}\n\n---\nSent from Portfolio Contact Form`
       );
-      const mailtoLink = `mailto:ujjwalshivhare62@gmail.com?subject=${subject}&body=${body}`;
+      const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalshivhare62@gmail.com&su=${subject}&body=${body}`;
       
-      // Open email client
-      window.location.href = mailtoLink;
+      // Open Gmail in new tab
+      window.open(gmailLink, '_blank');
       
       setSubmitStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
                     <a
-                      href="mailto:ujjwalshivhare62@gmail.com"
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalshivhare62@gmail.com"
                       className="text-white hover:text-cyan-400 transition-colors"
                      target="_blank"
                      rel="noopener noreferrer"
