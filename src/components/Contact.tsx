@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Send, Github, Linkedin } from 'lucide-react';
 
 interface ContactForm {
   name: string;
@@ -84,20 +84,6 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center">
-                    <Phone className="text-white" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Phone</p>
-                    <a
-                      href="tel:+916268636934"
-                      className="text-white hover:text-cyan-400 transition-colors"
-                    >
-                      +91 6268636934
-                    </a>
-                  </div>
-                </div>
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center">

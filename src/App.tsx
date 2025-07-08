@@ -19,7 +19,6 @@ const App: React.FC = () => {
     role: 'DevOps Engineer',
     status: 'Open to Work',
     email: 'ujjwalshivhare62@gmail.com',
-    phone: '+91 6268636934',
     github: 'https://github.com/ujjwalshivhare',
     linkedin: 'https://www.linkedin.com/in/ujjwal-shivhare-3457a6229/'
   };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, MapPin, Mail, Phone } from 'lucide-react';
+import { Download, MapPin, Mail } from 'lucide-react';
 
 interface HeroProps {
   userInfo: {
@@ -7,7 +7,6 @@ interface HeroProps {
     role: string;
     status: string;
     email: string;
-    phone: string;
     github: string;
     linkedin: string;
   };
@@ -33,7 +32,6 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
     '  - Infrastructure as Code',
     'contact:',
     '  email: ujjwalshivhare62@gmail.com',
-    '  phone: +91 6268636934',
     'social:',
     '  github: ujjwalshivhare',
     '  linkedin: ujjwal-shivhare'
@@ -187,20 +185,13 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
 
             {/* Quick Contact - Below YAML */}
             {mobileYamlVisible && (
-              <div className="flex justify-center gap-6 mt-8">
+              <div className="flex justify-center mt-8">
                 <a
                   href={`mailto:${userInfo.email}`}
                   className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
                   <Mail size={16} />
                   <span className="text-sm">Email</span>
-                </a>
-                <a
-                  href={`tel:${userInfo.phone}`}
-                  className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
-                >
-                  <Phone size={16} />
-                  <span className="text-sm">Call</span>
                 </a>
               </div>
             )}
@@ -256,13 +247,6 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
                   >
                     <Mail size={16} />
                     <span className="text-sm">Email</span>
-                  </a>
-                  <a
-                    href={`tel:${userInfo.phone}`}
-                    className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
-                  >
-                    <Phone size={16} />
-                    <span className="text-sm">Call</span>
                   </a>
                 </div>
               </div>
