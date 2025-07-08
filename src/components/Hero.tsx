@@ -18,6 +18,7 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
   const [currentChar, setCurrentChar] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
+  const [mobileYamlVisible, setMobileYamlVisible] = useState(false);
 
   const yamlLines = [
     '---',
@@ -43,22 +44,37 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Hide animation when scrolled down, show when back at top
-      if (scrollY > windowHeight * 0.5) {
-        setIsVisible(false);
+      // For desktop - hide animation when scrolled down
+      if (window.innerWidth >= 1024) {
+        if (scrollY > windowHeight * 0.5) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+          if (scrollY < 100) {
+            setCurrentLine(0);
+            setCurrentChar(0);
+          }
+        }
       } else {
-        setIsVisible(true);
-        // Reset animation when coming back to top
-        if (scrollY < 100) {
-          setCurrentLine(0);
-          setCurrentChar(0);
+        // For mobile - show YAML when scrolled to second section
+        if (scrollY > windowHeight * 0.7) {
+          setMobileYamlVisible(true);
+          setIsVisible(true);
+          // Reset animation when entering YAML section
+          if (!mobileYamlVisible) {
+            setCurrentLine(0);
+            setCurrentChar(0);
+          }
+        } else {
+          setMobileYamlVisible(false);
+          setIsVisible(false);
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mobileYamlVisible]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
@@ -69,7 +85,10 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
   }, []);
 
   useEffect(() => {
-    if (!isVisible || currentLine >= yamlLines.length) return;
+    // For desktop, use isVisible. For mobile, use mobileYamlVisible
+    const shouldAnimate = window.innerWidth >= 1024 ? isVisible : mobileYamlVisible;
+    
+    if (!shouldAnimate || currentLine >= yamlLines.length) return;
 
     const currentText = yamlLines[currentLine];
     
@@ -85,7 +104,7 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
       }, 200);
       return () => clearTimeout(timeout);
     }
-  }, [currentLine, currentChar, yamlLines, isVisible]);
+  }, [currentLine, currentChar, yamlLines, isVisible, mobileYamlVisible]);
 
   const handleResumeDownload = () => {
     const link = document.createElement('a');
@@ -147,12 +166,12 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
         </section>
 
         {/* Second Section - YAML Content (Appears on Scroll) */}
-        <section className="min-h-screen flex items-center justify-center px-4 relative z-10">
+        <section className="min-h-screen flex items-center justify-center px-4 relative z-10 py-8">
           <div className="w-full max-w-md">
             {/* YAML Text Section */}
             <div className="font-mono text-sm bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6">
               <div className="text-green-400 space-y-1">
-                {isVisible && yamlLines.slice(0, currentLine + 1).map((line, index) => (
+                {mobileYamlVisible && yamlLines.slice(0, currentLine + 1).map((line, index) => (
                   <div key={index} className="flex">
                     <span className="text-gray-500 mr-2 w-4 text-right text-xs">{index + 1}</span>
                     <span className="text-xs break-all">
@@ -166,26 +185,38 @@ const Hero: React.FC<HeroProps> = ({ userInfo }) => {
                     </span>
                   </div>
                 ))}
+                
+                {/* Show complete YAML if animation is done */}
+                {!mobileYamlVisible && (
+                  <div className="text-gray-500 text-center py-4">
+                    <p className="text-sm">Scroll down to see YAML content</p>
+                    <div className="mt-2">
+                      <div className="w-1 h-6 bg-cyan-400 mx-auto animate-bounce"></div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Quick Contact - Below YAML */}
-            <div className="flex justify-center gap-6 mt-8">
-              <a
-                href={`mailto:${userInfo.email}`}
-                className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
-              >
-                <Mail size={16} />
-                <span className="text-sm">Email</span>
-              </a>
-              <a
-                href={`tel:${userInfo.phone}`}
-                className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
-              >
-                <Phone size={16} />
-                <span className="text-sm">Call</span>
-              </a>
-            </div>
+            {mobileYamlVisible && (
+              <div className="flex justify-center gap-6 mt-8">
+                <a
+                  href={`mailto:${userInfo.email}`}
+                  className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <Mail size={16} />
+                  <span className="text-sm">Email</span>
+                </a>
+                <a
+                  href={`tel:${userInfo.phone}`}
+                  className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                >
+                  <Phone size={16} />
+                  <span className="text-sm">Call</span>
+                </a>
+              </div>
+            )}
           </div>
         </section>
       </div>

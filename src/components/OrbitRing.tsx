@@ -62,12 +62,14 @@ const OrbitRing: React.FC = () => {
   const opacity = Math.max(0.1, 1 - (scrollY / 800));
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-20">
-      {/* Hide on mobile when not in first section */}
-      <div 
-        className="lg:block"
-        style={{ opacity: window.innerWidth >= 1024 ? opacity : (scrollY < window.innerHeight ? 1 : 0) }}
-      >
+    <div 
+      className="fixed inset-0 flex items-center justify-center pointer-events-none z-20"
+      style={{ 
+        opacity: typeof window !== 'undefined' && window.innerWidth >= 1024 
+          ? opacity 
+          : (scrollY < (typeof window !== 'undefined' ? window.innerHeight : 800) ? 1 : 0) 
+      }}
+    >
       {/* Orbit Ring Glow */}
       <div className="absolute w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full">
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-cyan-500/20 blur-sm animate-pulse"></div>
@@ -112,7 +114,6 @@ const OrbitRing: React.FC = () => {
       {/* Center Orbit Lines */}
       <div className="absolute w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full border border-cyan-500/20 animate-spin-slow"></div>
       <div className="absolute w-80 h-80 md:w-[420px] md:h-[420px] lg:w-[520px] lg:h-[520px] rounded-full border border-purple-500/10 animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
-      </div>
     </div>
   );
 };
