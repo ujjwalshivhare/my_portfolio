@@ -14,46 +14,6 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: '1',
-      title: 'Multi-Tier Web Application on AWS',
-      description: 'Complete multi-tier architecture deployed on AWS with load balancing, auto-scaling, and database integration for high availability and scalability.',
-      category: 'Cloud Architecture',
-      githubUrl: 'https://github.com/ujjwalshivhare/Multi-Tier-Web-Application-on-AWS',
-      technologies: ['AWS', 'EC2', 'RDS', 'Load Balancer', 'Auto Scaling', 'VPC', 'CloudFormation']
-    },
-    {
-      id: '2',
-      title: 'Netflix Clone DevOps Project',
-      description: 'End-to-end DevOps pipeline for Netflix clone with containerization, CI/CD, monitoring, and automated deployment using Jenkins and Docker.',
-      category: 'Full DevOps Pipeline',
-      githubUrl: 'https://github.com/ujjwalshivhare/Netflix-clone-DevOps-Project',
-      technologies: ['Docker', 'Jenkins', 'Kubernetes', 'React', 'CI/CD', 'Monitoring', 'SonarQube']
-    },
-    {
-      id: '3',
-      title: 'Swiggy Clone DevOps',
-      description: 'Complete DevOps implementation for Swiggy clone application with containerization, orchestration, and automated deployment workflows.',
-      category: 'DevOps Implementation',
-      githubUrl: 'https://github.com/ujjwalshivhare/Swiggy-clone-devops',
-      technologies: ['Docker', 'Kubernetes', 'CI/CD', 'Microservices', 'Monitoring', 'Grafana']
-    },
-    {
-      id: '4',
-      title: 'Tetris Game DevOps',
-      description: 'Classic Tetris game with complete DevOps pipeline including containerization, automated testing, and deployment strategies.',
-      category: 'Game Development + DevOps',
-      githubUrl: 'https://github.com/ujjwalshivhare/Tetris-game-devops',
-      technologies: ['JavaScript', 'Docker', 'Jenkins', 'CI/CD', 'Testing', 'Deployment']
-    },
-    {
-      id: '5',
-      title: 'Reddit Clone DevOps',
-      description: 'Reddit clone application with comprehensive DevOps practices including containerization, monitoring, and scalable deployment architecture.',
-      category: 'Social Media + DevOps',
-      githubUrl: 'https://github.com/ujjwalshivhare/Reddit-clone-devops',
-      technologies: ['React', 'Docker', 'Kubernetes', 'CI/CD', 'Monitoring', 'Scaling', 'Jenkins']
-    },
-    {
-      id: '6',
       title: 'Dockerized App using Ansible',
       description: 'Python application automated with Ansible playbooks and Docker for seamless deployment and configuration management across environments.',
       category: 'Automation & IaC',
@@ -61,7 +21,7 @@ const Projects: React.FC = () => {
       technologies: ['Ansible', 'Docker', 'Python', 'YAML', 'Configuration Management', 'Automation']
     },
     {
-      id: '7',
+      id: '2',
       title: 'CI/CD Project',
       description: 'Complete CI/CD pipeline implementation with automated testing, building, and deployment workflows using modern DevOps tools.',
       category: 'CI/CD & DevOps',
@@ -69,7 +29,7 @@ const Projects: React.FC = () => {
       technologies: ['Jenkins', 'Docker', 'Git', 'CI/CD', 'Automation', 'Pipeline']
     },
     {
-      id: '8',
+      id: '3',
       title: 'Dockerization of Python App',
       description: 'Python application containerized using Dockerfile with multi-stage builds, automated builds and Docker Hub integration.',
       category: 'Containerization',
@@ -77,7 +37,7 @@ const Projects: React.FC = () => {
       technologies: ['Docker', 'Python', 'Docker Hub', 'Multi-stage Build', 'Container Registry']
     },
     {
-      id: '9',
+      id: '4',
       title: 'Kubernetes Cluster Setup',
       description: 'Complete Kubernetes cluster setup and configuration with worker nodes, networking, and application deployment examples.',
       category: 'Container Orchestration',
@@ -85,7 +45,7 @@ const Projects: React.FC = () => {
       technologies: ['Kubernetes', 'Docker', 'Cluster Management', 'Networking', 'YAML']
     },
     {
-      id: '10',
+      id: '5',
       title: 'Terraform AWS Infrastructure',
       description: 'Infrastructure as Code using Terraform to provision and manage AWS resources with best practices and modular approach.',
       category: 'Infrastructure as Code',
@@ -93,7 +53,7 @@ const Projects: React.FC = () => {
       technologies: ['Terraform', 'AWS', 'IaC', 'CloudFormation', 'Infrastructure Management']
     },
     {
-      id: '11',
+      id: '6',
       title: 'Monitoring Stack with Prometheus',
       description: 'Complete monitoring solution using Prometheus, Grafana, and AlertManager for application and infrastructure monitoring.',
       category: 'Monitoring & Observability',
@@ -101,7 +61,7 @@ const Projects: React.FC = () => {
       technologies: ['Prometheus', 'Grafana', 'AlertManager', 'Monitoring', 'Observability', 'Metrics']
     },
     {
-      id: '12',
+      id: '7',
       title: 'GitOps with ArgoCD',
       description: 'GitOps workflow implementation using ArgoCD for continuous deployment and application lifecycle management in Kubernetes.',
       category: 'GitOps & CD',
