@@ -14,6 +14,46 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: '1',
+      title: 'Multi-Tier Web Application on AWS',
+      description: 'Complete multi-tier architecture deployed on AWS with load balancing, auto-scaling, and database integration for high availability.',
+      category: 'Cloud Architecture',
+      githubUrl: 'https://github.com/ujjwalshivhare/Multi-Tier-Web-Application-on-AWS',
+      technologies: ['AWS', 'EC2', 'RDS', 'Load Balancer', 'Auto Scaling', 'VPC']
+    },
+    {
+      id: '2',
+      title: 'Netflix Clone DevOps Project',
+      description: 'End-to-end DevOps pipeline for Netflix clone with containerization, monitoring, and automated deployment using modern DevOps tools.',
+      category: 'Full DevOps Pipeline',
+      githubUrl: 'https://github.com/ujjwalshivhare/Netflix-clone-DevOps-Project',
+      technologies: ['Docker', 'Kubernetes', 'Jenkins', 'Monitoring', 'CI/CD', 'React']
+    },
+    {
+      id: '3',
+      title: 'Swiggy Clone DevOps',
+      description: 'Complete DevOps implementation for Swiggy clone application with containerization, orchestration, and automated deployment workflows.',
+      category: 'DevOps Implementation',
+      githubUrl: 'https://github.com/ujjwalshivhare/Swiggy-clone-devops',
+      technologies: ['Docker', 'Kubernetes', 'CI/CD', 'Microservices', 'Monitoring']
+    },
+    {
+      id: '4',
+      title: 'Tetris Game DevOps',
+      description: 'Classic Tetris game with complete DevOps pipeline including containerization, testing, and automated deployment strategies.',
+      category: 'Game Development + DevOps',
+      githubUrl: 'https://github.com/ujjwalshivhare/Tetris-game-devops',
+      technologies: ['JavaScript', 'Docker', 'CI/CD', 'Testing', 'Deployment']
+    },
+    {
+      id: '5',
+      title: 'Reddit Clone DevOps',
+      description: 'Reddit clone application with comprehensive DevOps practices including containerization, monitoring, and scalable deployment.',
+      category: 'Social Media + DevOps',
+      githubUrl: 'https://github.com/ujjwalshivhare/Reddit-clone-devops',
+      technologies: ['React', 'Docker', 'Kubernetes', 'CI/CD', 'Monitoring', 'Scaling']
+    },
+    {
+      id: '6',
       title: 'Dockerized App using Ansible',
       description: 'Python application automated with Ansible & Docker for seamless deployment and configuration management.',
       category: 'CI/CD & Automation',
@@ -21,7 +61,7 @@ const Projects: React.FC = () => {
       technologies: ['Ansible', 'Docker', 'Python', 'YAML']
     },
     {
-      id: '2',
+      id: '7',
       title: 'CI/CD Project',
       description: 'Complete CI/CD pipeline implementation with automated testing, building, and deployment workflows.',
       category: 'CI/CD & DevOps',
@@ -29,7 +69,7 @@ const Projects: React.FC = () => {
       technologies: ['Jenkins', 'Docker', 'Git', 'CI/CD', 'Automation']
     },
     {
-      id: '3',
+      id: '8',
       title: 'Dockerized Python App',
       description: 'Application containerized using Dockerfile with automated builds and Docker Hub integration.',
       category: 'Containers & Infra',
