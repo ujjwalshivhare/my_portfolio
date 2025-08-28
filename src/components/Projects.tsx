@@ -15,18 +15,18 @@ const Projects: React.FC = () => {
     {
       id: '1',
       title: 'Multi-Tier Web Application on AWS',
-      description: 'Complete multi-tier architecture deployed on AWS with load balancing, auto-scaling, and database integration for high availability.',
+      description: 'Complete multi-tier architecture deployed on AWS with load balancing, auto-scaling, and database integration for high availability and scalability.',
       category: 'Cloud Architecture',
       githubUrl: 'https://github.com/ujjwalshivhare/Multi-Tier-Web-Application-on-AWS',
-      technologies: ['AWS', 'EC2', 'RDS', 'Load Balancer', 'Auto Scaling', 'VPC']
+      technologies: ['AWS', 'EC2', 'RDS', 'Load Balancer', 'Auto Scaling', 'VPC', 'CloudFormation']
     },
     {
       id: '2',
       title: 'Netflix Clone DevOps Project',
-      description: 'End-to-end DevOps pipeline for Netflix clone with containerization, monitoring, and automated deployment using modern DevOps tools.',
+      description: 'End-to-end DevOps pipeline for Netflix clone with containerization, CI/CD, monitoring, and automated deployment using Jenkins and Docker.',
       category: 'Full DevOps Pipeline',
       githubUrl: 'https://github.com/ujjwalshivhare/Netflix-clone-DevOps-Project',
-      technologies: ['Docker', 'Kubernetes', 'Jenkins', 'Monitoring', 'CI/CD', 'React']
+      technologies: ['Docker', 'Jenkins', 'Kubernetes', 'React', 'CI/CD', 'Monitoring', 'SonarQube']
     },
     {
       id: '3',
@@ -34,47 +34,79 @@ const Projects: React.FC = () => {
       description: 'Complete DevOps implementation for Swiggy clone application with containerization, orchestration, and automated deployment workflows.',
       category: 'DevOps Implementation',
       githubUrl: 'https://github.com/ujjwalshivhare/Swiggy-clone-devops',
-      technologies: ['Docker', 'Kubernetes', 'CI/CD', 'Microservices', 'Monitoring']
+      technologies: ['Docker', 'Kubernetes', 'CI/CD', 'Microservices', 'Monitoring', 'Grafana']
     },
     {
       id: '4',
       title: 'Tetris Game DevOps',
-      description: 'Classic Tetris game with complete DevOps pipeline including containerization, testing, and automated deployment strategies.',
+      description: 'Classic Tetris game with complete DevOps pipeline including containerization, automated testing, and deployment strategies.',
       category: 'Game Development + DevOps',
       githubUrl: 'https://github.com/ujjwalshivhare/Tetris-game-devops',
-      technologies: ['JavaScript', 'Docker', 'CI/CD', 'Testing', 'Deployment']
+      technologies: ['JavaScript', 'Docker', 'Jenkins', 'CI/CD', 'Testing', 'Deployment']
     },
     {
       id: '5',
       title: 'Reddit Clone DevOps',
-      description: 'Reddit clone application with comprehensive DevOps practices including containerization, monitoring, and scalable deployment.',
+      description: 'Reddit clone application with comprehensive DevOps practices including containerization, monitoring, and scalable deployment architecture.',
       category: 'Social Media + DevOps',
       githubUrl: 'https://github.com/ujjwalshivhare/Reddit-clone-devops',
-      technologies: ['React', 'Docker', 'Kubernetes', 'CI/CD', 'Monitoring', 'Scaling']
+      technologies: ['React', 'Docker', 'Kubernetes', 'CI/CD', 'Monitoring', 'Scaling', 'Jenkins']
     },
     {
       id: '6',
       title: 'Dockerized App using Ansible',
-      description: 'Python application automated with Ansible & Docker for seamless deployment and configuration management.',
-      category: 'CI/CD & Automation',
+      description: 'Python application automated with Ansible playbooks and Docker for seamless deployment and configuration management across environments.',
+      category: 'Automation & IaC',
       githubUrl: 'https://github.com/ujjwalshivhare/dockerized_app_using_ansible',
-      technologies: ['Ansible', 'Docker', 'Python', 'YAML']
+      technologies: ['Ansible', 'Docker', 'Python', 'YAML', 'Configuration Management', 'Automation']
     },
     {
       id: '7',
       title: 'CI/CD Project',
-      description: 'Complete CI/CD pipeline implementation with automated testing, building, and deployment workflows.',
+      description: 'Complete CI/CD pipeline implementation with automated testing, building, and deployment workflows using modern DevOps tools.',
       category: 'CI/CD & DevOps',
       githubUrl: 'https://github.com/ujjwalshivhare/CICD_project',
-      technologies: ['Jenkins', 'Docker', 'Git', 'CI/CD', 'Automation']
+      technologies: ['Jenkins', 'Docker', 'Git', 'CI/CD', 'Automation', 'Pipeline']
     },
     {
       id: '8',
-      title: 'Dockerized Python App',
-      description: 'Application containerized using Dockerfile with automated builds and Docker Hub integration.',
-      category: 'Containers & Infra',
+      title: 'Dockerization of Python App',
+      description: 'Python application containerized using Dockerfile with multi-stage builds, automated builds and Docker Hub integration.',
+      category: 'Containerization',
       githubUrl: 'https://github.com/ujjwalshivhare/Dockerization_of_app.py-file1',
-      technologies: ['Docker', 'Python', 'Docker Hub', 'CI/CD']
+      technologies: ['Docker', 'Python', 'Docker Hub', 'Multi-stage Build', 'Container Registry']
+    },
+    {
+      id: '9',
+      title: 'Kubernetes Cluster Setup',
+      description: 'Complete Kubernetes cluster setup and configuration with worker nodes, networking, and application deployment examples.',
+      category: 'Container Orchestration',
+      githubUrl: 'https://github.com/ujjwalshivhare/kubernetes-cluster-setup',
+      technologies: ['Kubernetes', 'Docker', 'Cluster Management', 'Networking', 'YAML']
+    },
+    {
+      id: '10',
+      title: 'Terraform AWS Infrastructure',
+      description: 'Infrastructure as Code using Terraform to provision and manage AWS resources with best practices and modular approach.',
+      category: 'Infrastructure as Code',
+      githubUrl: 'https://github.com/ujjwalshivhare/terraform-aws-infrastructure',
+      technologies: ['Terraform', 'AWS', 'IaC', 'CloudFormation', 'Infrastructure Management']
+    },
+    {
+      id: '11',
+      title: 'Monitoring Stack with Prometheus',
+      description: 'Complete monitoring solution using Prometheus, Grafana, and AlertManager for application and infrastructure monitoring.',
+      category: 'Monitoring & Observability',
+      githubUrl: 'https://github.com/ujjwalshivhare/prometheus-monitoring-stack',
+      technologies: ['Prometheus', 'Grafana', 'AlertManager', 'Monitoring', 'Observability', 'Metrics']
+    },
+    {
+      id: '12',
+      title: 'GitOps with ArgoCD',
+      description: 'GitOps workflow implementation using ArgoCD for continuous deployment and application lifecycle management in Kubernetes.',
+      category: 'GitOps & CD',
+      githubUrl: 'https://github.com/ujjwalshivhare/gitops-argocd',
+      technologies: ['ArgoCD', 'GitOps', 'Kubernetes', 'Continuous Deployment', 'Git', 'YAML']
     }
   ];
 
@@ -86,7 +118,7 @@ const Projects: React.FC = () => {
             Featured <span className="text-cyan-400">Projects</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Explore my DevOps projects showcasing automation, containerization, and infrastructure management.
+            Explore my DevOps projects showcasing automation, containerization, cloud infrastructure, and modern deployment practices.
           </p>
         </div>
 
@@ -136,6 +168,20 @@ const Projects: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* GitHub Profile Link */}
+        <div className="text-center mt-12">
+          <a
+            href="https://github.com/ujjwalshivhare"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-600 hover:border-cyan-500/50 rounded-lg px-6 py-3 text-white hover:text-cyan-400 transition-all duration-300 group"
+          >
+            <Github size={20} className="group-hover:text-cyan-400" />
+            <span className="font-medium">View All Projects on GitHub</span>
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          </a>
         </div>
       </div>
     </section>
